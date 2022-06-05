@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=":http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Export</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+    <div class="contain-fluid text-center">
+        <div>
+            <h2>Check</h2>
+        </div>
+        <div>
+                <input type="text" th:value="${parking.id}">
+                <input type="text" th:value="${parking.parking_code}">
+                <input type="text" th:value="${parking.vechile_cat_id}">
+                <input type="text" th:value="${parking.rate_id}">
+                <input type="text" th:value="${parking.slot_id}">
+                <input type="text" th:value="${parking.in_time}">
+                <input type="text" th:value="${parking.out_time}">
+                <input type="text" th:value="${parking.total_time}">
+                <input type="text" th:value="${parking.earned_amount}">
+                <input type="text" th:value="${parking.paid_status}">
+
+        </div>
+    </div>
+</body>
+</html>

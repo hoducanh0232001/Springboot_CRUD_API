@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=":http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Users</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div><h2>Customer Car Parking</h2></div>
+    <div class="mb-3 ">
+        <form th:action="@{/parking}">Filter:
+            <input type="text" name="keyword" th:value="${keyword}" required>
+            &nbsp;
+                <input type="submit" value="Search" onclick="exportForm()">
+            &nbsp;
+            <input type="button" value="Clear" onclick="clearFilter()">
+        </form>
+    </div>
+
+    <div>
+
+    <table class="table table-bordered ui-state-hover">
+        <thead class="thead-dark" >
+        <tr>
+            <th>ID</th>
+            <th>Mã đỗ xe</th>
+            <th>Loại xe</th>
+            <th>Giá</th>
+            <th>Vị trí</th>
+            <th>Thời gian vào</th>
+            <th>Thời gian ra</th>
+            <th>Tổng thời gian</th>
+            <th>Tổng tiền</th>
+            <th>Trạng thái</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="parking :${listCarParking}">
+            <tr>
+                <td>
+                    [[${parking.id}]]
+                </td>
+                <td>[[${parking.parking_code}]]</td>
+                <td>[[${parking.vechile_cat_id}]]</td>
+                <td>[[${parking.rate_id}]]</td>
+                <td>[[${parking.slot_id}]]</td>
+                <td>[[${parking.in_time}]]</td>
+                <td>[[${parking.out_time}]]</td>
+                <td>[[${parking.total_time}]]</td>
+                <td>[[${parking.earned_amount}]]</td>
+                <td>[[${parking.paid_status}]]</td>
+
+            </tr>
+        </th:block>
+
+        </tbody>
+    </table>
+    </div>
+</div>
+<script type="text/javascript">
+    function clearFilter(){
+        window.location = '/parking';
+    }
+    function exportForm(){
+        window.location ='/export';
+    }
+</script>
+</body>
+</html>
